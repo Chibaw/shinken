@@ -71,6 +71,8 @@ $(document).ready(function(){
 
   %#  "Content Container Start"
   
+  %# app.template_call('linux_detail', globals())
+
   <div id="content_container" class="row-fluid">
   	<div class="row-fluid">
   		<h1 class="span7 state_{{elt.state.lower()}} icon_down no-margin"> <img class="imgsize3" alt="icon state" src="{{helper.get_icon_state(elt)}}" />{{elt.state}}: {{elt.get_full_name()}}</h1> 
@@ -423,7 +425,7 @@ $(document).ready(function(){
 		<!-- Detail info box start -->
 		<div class="span9 tabbable">
 			<ul class="nav nav-tabs"  style="margin-bottom: 12px;">
-				<li class="active"><a href="#impacts" data-toggle="tab">Impacts</a></li>
+				<li class="active"><a href="#impacts" data-toggle="tab">Services</a></li>
 				<li><a href="#comments" data-toggle="tab">Comments</a></li>
 				<li><a href="#downtimes" data-toggle="tab">Downtimes</a></li>
 				<li><a href="#graphs" data-toggle="tab" id='tab_to_graphs'>Graphs</a></li>
@@ -620,8 +622,8 @@ $(document).ready(function(){
 		      	<div class="tab-pane" id="graphs">
 		      		%uris = app.get_graph_uris(elt, graphstart, graphend)
 		      		%if len(uris) == 0:
-					<div class="row alert">
-					    <div class="font-red"><strong>Oh snap!</strong> No graphs available!</div>
+					<div class="alert alert-info">
+					    <div class="font-blue"><strong>Oh snap!</strong> No graphs available!</div>
 					</div>
 		      		%else:
 		      		<h4>Graphs</h4>
